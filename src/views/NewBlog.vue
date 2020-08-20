@@ -43,7 +43,7 @@ export default {
       formData.set('image', this.blog.image)
       axios({
         method: 'post',
-        url: 'http://127.0.0.1:8000/api/addblog',
+        url: 'https://backblog1.herokuapp.com/api/addblog',
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' }
       }).then(res => {

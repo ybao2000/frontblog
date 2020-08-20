@@ -44,7 +44,7 @@ export default {
     ...mapActions(['initBlogs'])
   },
   mounted () {
-    axios.get('http://127.0.0.1:8000/api/blogs')
+    axios.get('https://backblog1.herokuapp.com/api/blogs')
       .then(res => {
         console.log(res.data)
         this.initBlogs(res.data)
