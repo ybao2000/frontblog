@@ -45,7 +45,7 @@ export default {
         method: 'post',
         url: 'https://backblog1.herokuapp.com/api/addblog',
         data: formData,
-        headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*' }
+        headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS' }
       }).then(res => {
         console.log(res)
         this.addBlog(res.data)
