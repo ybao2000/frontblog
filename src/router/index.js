@@ -1,44 +1,39 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Film from '@/views/Film'
-import Cinema from '@/views/Cinema'
-import Center from '@/views/Center'
-import Nowplaying from '@/views/Film/Nowplaying'
-import Comingsoon from '@/views/Film/Comingsoon'
+import Home from '../views/Home.vue'
+import BlogList from '../views/BlogList.vue'
+import NewBlog from '../views/NewBlog.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/bloglist',
+    name: 'BlogList',
+    component: BlogList
+  },
+  {
+    path: '/newblog',
+    name: 'NewBlog',
+    component: NewBlog
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  }
+]
+
 const router = new VueRouter({
-	// mode: 'history',
-	// base: process.env.BASE_URL,
-	routes: [
-		{
-			path: '/film',
-			component: Film,
-			children: [
-				{
-					path: "nowplaying", // or /film/nowplaying
-					component: Nowplaying
-				},
-				{
-					path: "comingsoon",
-					component: Comingsoon
-				}
-			]
-		},
-		{
-			path: '/cinema',
-			component: Cinema
-		},
-		{
-			path: '/center',
-			component: Center
-		},
-		{
-			path: '*',
-			redirect: '/film'
-		}
-	]
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
 
 export default router

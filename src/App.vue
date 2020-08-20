@@ -1,68 +1,47 @@
 <template>
-  <div>
-    <tabbar></tabbar>
-    <!-- hello vue -->
-    <!-- <input type="text" ref="mytext">
-    <button @click="handleAdd">add</button>
-
-    <ul>
-      <li v-for="item in items" :key="item">
-        {{ item }}
-      </li>
-    </ul>
-
-    <navbar>
-      <button @click="isShow=!isShow">navbar click</button>
-    </navbar>
-    <sidebar v-show="isShow"></sidebar> -->
-    <router-view></router-view>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <router-link to="/" class="nav-link">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/bloglist" class="nav-link">Blogs</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/about" class="nav-link">About</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-view/>
   </div>
 </template>
 
-<script>
-// import navbar from './components/Navbar'
-// import sidebar from './components/Sidebar'
-import tabbar from './components/Tabbar'
-
-import axios from 'axios'
-
-// global components
-// import Vue from 'vue'
-// Vue.component("navbar", navbar)
-// Vue.component("sidebar", sidebar)
-
-export default {
-	data() {
-		return {
-			items: [],
-			isShow: false
-		}
-	},
-	methods: {
-		handleAdd() {
-			// console.log("add", this.$refs.mytext.value)
-			this.items.push(this.$refs.mytext.value)
-		}
-	},
-	components: {
-		// navbar: navbar,
-		// sidebar: sidebar
-		tabbar
-	},
-	mounted() {
-		axios.get("/api/v1/theatres?language=en-us&range=100000&skip=0&take=1000").then(res => {
-			console.log(res.data)
-		})
-		// axios.get("/api/location/search/?query=calgary").then(res => {
-		//   console.log(res.data)
-		// })
-		// axios.get("https://www.kwelo.com/media/identicon/carpool").then(res => {
-		//   console.log(res.data)
-		// })
-	}
-}
-</script>
-
 <style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
 </style>
